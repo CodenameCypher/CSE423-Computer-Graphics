@@ -11,6 +11,7 @@ def dda(sx, sy, ex, ey):
             print('(' + str(round(sx)) + ', ' + str(sy) + ')')
             sy = sy + 1
             sx = sx + (1/m)
+    print('(' + str(ex) + ', ' + str(ey) + ')')
 
 
 if __name__ == '__main__':
