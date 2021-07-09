@@ -1,5 +1,8 @@
 def dda(sx, sy, ex, ey):
-    m = (ey-sy)/(ex-sx)  # calculating the scope
+    try:
+        m = (ey-sy)/(ex-sx)  # calculating the scope
+    except:
+        m = 2e18  # calculating the scope
 
     if m < 1 and m > -1:  # check if the line is steep
         while(sx != ex):
