@@ -5,16 +5,22 @@ def midpoint(r):
     y = r
 
     points = []
-    while(x <= y):
+    i = 0
+    count = 0
+    while(x < y):
+        print(i, ' -> ', d)
+        i += 1
         points.append((x, y))
         if d >= 0:
+            count += 1
+            d += (2*x) - (2*y) + 5
             x = x + 1
             y = y - 1
-            d += (2*x) - (2*y) + 5
         else:
-            x = x + 1
             d += (2*x) + 3
-    points.append((x, y))
+            x = x + 1
+    # points.append((x, y))
+    print(count)
     return points
 
 
@@ -103,14 +109,16 @@ if __name__ == '__main__':
         zone_6_points.append(convertToOriginal(x, y, 'zone 6'))
         zone_7_points.append(convertToOriginal(x, y, 'zone 7'))
 
-    print('Zone - 0 :', zone_0_points)
+    # print('Zone - 0 :', zone_0_points)
     print('Zone - 1 :', zone_1_points)
-    print('Zone - 2 :', zone_2_points)
-    print('Zone - 3 :', zone_3_points)
-    print('Zone - 4 :', zone_4_points)
-    print('Zone - 5 :', zone_5_points)
-    print('Zone - 6 :', zone_6_points)
-    print('Zone - 7 :', zone_7_points)
+
+    print(len(zone_1_points))
+    # print('Zone - 2 :', zone_2_points)
+    # print('Zone - 3 :', zone_3_points)
+    # print('Zone - 4 :', zone_4_points)
+    # print('Zone - 5 :', zone_5_points)
+    # print('Zone - 6 :', zone_6_points)
+    # print('Zone - 7 :', zone_7_points)
 
     # for (x, y) in zone_0_points:
     #     print((x, y))
