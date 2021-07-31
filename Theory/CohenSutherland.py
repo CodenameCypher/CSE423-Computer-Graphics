@@ -38,7 +38,7 @@ def cohen(x1, y1, x2, y2):
     oc1 = outcode(x1, y1)
     oc2 = outcode(x2, y2)
     m = (y2-y1)/(x2-x1)
-    print("m", m)
+    print("m:", m)
     print('--------------------------------------------------------------')
     x_1 = x1
     y_1 = y1
