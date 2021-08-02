@@ -11,7 +11,8 @@ def vectormul(a, b):
 def intersection(x0, y0, x1, y1, t):
     x = x0+t*(x1-x0)
     y = y0+t*(y1-y0)
-    print(x, ",", y)
+    print('Original:', x, ",", y)
+    print('Rounded Value', round(x), ",", round(y))
 
 
 def printer(N_D, t):

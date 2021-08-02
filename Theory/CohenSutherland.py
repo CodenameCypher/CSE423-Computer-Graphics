@@ -91,11 +91,11 @@ def cohen(x1, y1, x2, y2):
                 elif(oc2[2] == '1'):
                     x = x_max
                     y = round(y2 + m*(x_max - x2))
-                    print('Updated top for the second outcode')
+                    print('Updated right for the second outcode')
                 elif(oc2[3] == '1'):
                     x = x_min
                     y = round(y2+m*(x_min-x2))
-                    print('Updated top for the second outcode')
+                    print('Updated left for the second outcode')
                 oc2 = outcode(x, y)
                 x_2 = x
                 y_2 = y

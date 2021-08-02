@@ -89,7 +89,7 @@ def convertToOriginal(x, y, destinationZone):
 
 
 if __name__ == '__main__':
-    r = int(input())
+    r = int(input('Enter Radius: '))
     zone_1_points = midpoint(r)
     zone_0_points = []
     zone_2_points = []
