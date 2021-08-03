@@ -7,7 +7,7 @@ def findZone(sx, sy, ex, ey):
         if dx >= 0 and dy >= 0:
             return 'zone 0'
         elif dx < 0 and dy > 0:
-            return'zone 1'
+            return'zone 3'
         elif dx < 0 and dy < 0:
             return'zone 4'
         elif dx > 0 and dy < 0:
@@ -128,3 +128,5 @@ if __name__ == "__main__":
         for (x, y) in points:
             original = convertToOriginal(x, y, zone)
             print(original)
+
+        print(zone)
