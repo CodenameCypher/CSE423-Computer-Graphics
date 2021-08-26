@@ -111,22 +111,24 @@ def midpoint(sx, sy, ex, ey):
 
 
 if __name__ == "__main__":
-    sx, sy = map(int, input("Starting Point: ").split())
-    ex, ey = map(int, input("Ending Point: ").split())
+    # sx, sy = map(int, input("Starting Point: ").split())
+    # ex, ey = map(int, input("Ending Point: ").split())
 
-    zone = findZone(sx, sy, ex, ey)
+    # zone = findZone(sx, sy, ex, ey)
 
-    if zone == 'zone 0':
-        points = midpoint(sx, sy, ex, ey)
-        for (x, y) in points:
-            print((x, y))
-    else:
-        startingPointsConverted = convertToZone0(sx, sy, zone)
-        endingPointConverted = convertToZone0(ex, ey, zone)
-        points = midpoint(
-            startingPointsConverted[0], startingPointsConverted[1], endingPointConverted[0], endingPointConverted[1])
-        for (x, y) in points:
-            original = convertToOriginal(x, y, zone)
-            print(original)
+    # if zone == 'zone 0':
+    #     points = midpoint(sx, sy, ex, ey)
+    #     for (x, y) in points:
+    #         print((x, y))
+    # else:
+    #     startingPointsConverted = convertToZone0(sx, sy, zone)
+    #     endingPointConverted = convertToZone0(ex, ey, zone)
+    #     points = midpoint(
+    #         startingPointsConverted[0], startingPointsConverted[1], endingPointConverted[0], endingPointConverted[1])
+    #     for (x, y) in points:
+    #         original = convertToOriginal(x, y, zone)
+    #         print(original)
 
-        print(zone)
+    # print(zone)
+
+    print(findZone(325, 500, 500, 400))
