@@ -96,39 +96,47 @@ def midpoint(sx, sy, ex, ey):
     d = d_init
 
     points = []
-    while(sx != ex and sy != ey):
-        # print('(' + str(sx) + ', ' + str(sy) + ')')
-        points.append((sx, sy))
-        if d > 0:
-            sx += 1
+    if sx == ex:
+        while(sy != ey):
+            points.append((sx, sy))
             sy += 1
-            d += 2*(dy - dx)
-        else:
+    elif sy == ey:
+        while(sx != ex):
+            points.append((sx, sy))
             sx += 1
-            d += 2*dy
+    else:
+        while(sx != ex and sy != ey):
+            points.append((sx, sy))
+            if d > 0:
+                sx += 1
+                sy += 1
+                d += 2*(dy - dx)
+            else:
+                sx += 1
+                d += 2*dy
     points.append((ex, ey))
     return points
 
 
 if __name__ == "__main__":
-    # sx, sy = map(int, input("Starting Point: ").split())
-    # ex, ey = map(int, input("Ending Point: ").split())
+    sx, sy = map(int, input("Starting Point: ").split())
+    ex, ey = map(int, input("Ending Point: ").split())
 
-    # zone = findZone(sx, sy, ex, ey)
+    zone = findZone(sx, sy, ex, ey)
 
-    # if zone == 'zone 0':
-    #     points = midpoint(sx, sy, ex, ey)
-    #     for (x, y) in points:
-    #         print((x, y))
-    # else:
-    #     startingPointsConverted = convertToZone0(sx, sy, zone)
-    #     endingPointConverted = convertToZone0(ex, ey, zone)
-    #     points = midpoint(
-    #         startingPointsConverted[0], startingPointsConverted[1], endingPointConverted[0], endingPointConverted[1])
-    #     for (x, y) in points:
-    #         original = convertToOriginal(x, y, zone)
-    #         print(original)
+    if zone == 'zone 0':
+        points = midpoint(sx, sy, ex, ey)
+        for (x, y) in points:
+            print((x, y))
+    else:
+        startingPointsConverted = convertToZone0(sx, sy, zone)
+        endingPointConverted = convertToZone0(ex, ey, zone)
+        points = midpoint(
+            startingPointsConverted[0], startingPointsConverted[1], endingPointConverted[0], endingPointConverted[1])
+        for (x, y) in points:
+            original = convertToOriginal(x, y, zone)
+            print(original)
 
-    # print(zone)
+    print(zone)
 
-    print(findZone(325, 500, 500, 400))
+    # print(findZone(325, 500, 500, 400))
