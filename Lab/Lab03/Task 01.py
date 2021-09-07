@@ -1,3 +1,17 @@
+from OpenGL.GL import *
+from OpenGL.GLUT import *
+from OpenGL.GLU import *
+
+
+def iterate():
+    glViewport(0, 0, 500, 500)
+    glMatrixMode(GL_PROJECTION)
+    glLoadIdentity()
+    glOrtho(0.0, 500, 0.0, 500, 0.0, 1.0)
+    glMatrixMode(GL_MODELVIEW)
+    glLoadIdentity()
+
+
 def midpoint(r, a, b):
     d_init = 1 - r
     d = d_init
@@ -82,6 +96,7 @@ def convertToOriginal(x, y, destinationZone):
 
 
 def drawCircle(r, x, y):
+    glBegin(GL_POINTS)
     zone_1_points = midpoint(r, x, y)
     zone_0_points = []
     zone_2_points = []
@@ -103,67 +118,54 @@ def drawCircle(r, x, y):
         zone_7_points.append(convertToOriginal(a, b, 'zone 7'))
 
     for (a, b) in zone_0_points:
-        print((a+x, b+y))
-    # for (a, b) in zone_1_points:
-    #     print((a+x, b+y))
-    # for (a, b) in zone_2_points:
-    #     print((a+x, b+y))
-    # for (a, b) in zone_3_points:
-    #     print((a+x, b+y))
-    # for (a, b) in zone_4_points:
-    #     print((a+x, b+y))
-    # for (a, b) in zone_5_points:
-    #     print((a+x, b+y))
-    # for (a, b) in zone_6_points:
-    #     print((a+x, b+y))
-    # for (a, b) in zone_7_points:
-    #     print((a+x, b+y))
+        glVertex2f(a+x, b+y)
+    for (a, b) in zone_1_points:
+        glVertex2f(a+x, b+y)
+    for (a, b) in zone_2_points:
+        glVertex2f(a+x, b+y)
+    for (a, b) in zone_3_points:
+        glVertex2f(a+x, b+y)
+    for (a, b) in zone_4_points:
+        glVertex2f(a+x, b+y)
+    for (a, b) in zone_5_points:
+        glVertex2f(a+x, b+y)
+    for (a, b) in zone_6_points:
+        glVertex2f(a+x, b+y)
+    for (a, b) in zone_7_points:
+        glVertex2f(a+x, b+y)
+
+    glEnd()
 
 
-if __name__ == '__main__':
-    r = int(input('Enter Radius: '))
-    drawCircle(r, 100, 200)
-    # zone_1_points = midpoint(r)
-    # zone_0_points = []
-    # zone_2_points = []
-    # zone_3_points = []
-    # zone_4_points = []
-    # zone_5_points = []
-    # zone_6_points = []
-    # zone_7_points = []
-    # for (x, y) in zone_1_points:
-    #     zone_0_points.append(convertToZone0(x, y, 'zone 1'))
+def showScreen():
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+    glLoadIdentity()
+    iterate()
+    glColor3f(8/255, 208/255, 217/255)
+    glPointSize(2)
+    # call the draw methods here
+    glColor3f(0, 0, 255)
+    drawCircle(70, 120, 300)
 
-    # for (x, y) in zone_0_points:
-    #     zone_2_points.append(convertToOriginal(x, y, 'zone 2'))
-    #     zone_3_points.append(convertToOriginal(x, y, 'zone 3'))
-    #     zone_4_points.append(convertToOriginal(x, y, 'zone 4'))
-    #     zone_5_points.append(convertToOriginal(x, y, 'zone 5'))
-    #     zone_6_points.append(convertToOriginal(x, y, 'zone 6'))
-    #     zone_7_points.append(convertToOriginal(x, y, 'zone 7'))
+    glColor3f(255, 255, 255)
+    drawCircle(70, 270, 300)
 
-    # print('Zone - 0 :', zone_0_points)
-    # print('Zone - 1 :', zone_1_points)
-    # print('Zone - 2 :', zone_2_points)
-    # print('Zone - 3 :', zone_3_points)
-    # print('Zone - 4 :', zone_4_points)
-    # print('Zone - 5 :', zone_5_points)
-    # print('Zone - 6 :', zone_6_points)
-    # print('Zone - 7 :', zone_7_points)
+    glColor3f(255, 0, 0)
+    drawCircle(70, 420, 300)
 
-    # for (x, y) in zone_0_points:
-    #     print((x, y))
-    # for (x, y) in zone_1_points:
-    #     print((x, y))
-    # for (x, y) in zone_2_points:
-    #     print((x, y))
-    # for (x, y) in zone_3_points:
-    #     print((x, y))
-    # for (x, y) in zone_4_points:
-    #     print((x, y))
-    # for (x, y) in zone_5_points:
-    #     print((x, y))
-    # for (x, y) in zone_6_points:
-    #     print((x, y))
-    # for (x, y) in zone_7_points:
-    #     print((x, y))
+    glColor3f(255, 255, 0)
+    drawCircle(70, 195, 230)
+
+    glColor3f(0, 128, 0)
+    drawCircle(70, 345, 230)
+    glutSwapBuffers()
+
+
+glutInit()
+glutInitDisplayMode(GLUT_RGBA)
+glutInitWindowSize(600, 500)
+glutInitWindowPosition(0, 0)
+wind = glutCreateWindow(b"19101414 Lab 03")
+glutDisplayFunc(showScreen)
+glutIdleFunc(showScreen)
+glutMainLoop()
