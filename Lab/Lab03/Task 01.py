@@ -12,7 +12,7 @@ def iterate():
     glLoadIdentity()
 
 
-def midpoint(r, a, b):
+def midpoint(r):
     d_init = 1 - r
     d = d_init
     x = 0
@@ -97,7 +97,7 @@ def convertToOriginal(x, y, destinationZone):
 
 def drawCircle(r, x, y):
     glBegin(GL_POINTS)
-    zone_1_points = midpoint(r, x, y)
+    zone_1_points = midpoint(r)
     zone_0_points = []
     zone_2_points = []
     zone_3_points = []
